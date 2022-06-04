@@ -54,9 +54,6 @@ async def goodbye(message: types.message):
     await message.answer(f"Досвиданья, {data}", reply_markup=keyboard_markup)
 
 
-
-
-
 @dispatcher.message_handler(text="Баланс")
 async def get_balance(message: types.message):
     bal = None
@@ -67,7 +64,7 @@ async def get_balance(message: types.message):
 
 
 @dispatcher.message_handler(text="Задолжность")
-async def get_bill(message: types.message):
+async def get_debt(message: types.message):
     debt = None
     d = cursor.execute("""SELECT debt FROM clients WHERE name=?""", (data,)).fetchall()
     for el in d:
